@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Aktuelles — Villa 39</title>
+
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500;600;700&family=Permanent+Marker&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav>
+
+        <a href="index.html" class="logo">Villa 39</a>
+
+        <button class="hamburger" id="hamburgerBtn" aria-label="Menü öffnen" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <ul id="navLinks">
+            <li><a href="index.html#about">Worum es geht</a></li>
+            <li><a href="aktuelles.html">Aktuelles</a></li>
+            <li><a href="index.html#support">Direktkredit</a></li>
+            <li><a href="index.html#geschichte">Die Villa</a></li>
+            <li><a href="index.html#newsletter">Newsletter</a></li>
+            <li><a href="index.html#contact">Kontakt</a></li>
+        </ul>
+
+    </nav>
+
+    <header class="subpage-hero">
+        <h1>Aktuelles</h1>
+    </header>
+
+    <main class="subpage-content subpage-content--wide">
+
+        <div class="aktuelles-list aktuelles-list--full" id="aktuellesList">
+            <p class="aktuelles-fallback">Meldungen werden geladen …</p>
+        </div>
+
+        <p>Um über alles rund um die Villa 39 auf dem Laufenden zu bleiben, abonniere unseren <a href="index.html#newsletter" class="inline-link"><strong>Newsletter</strong></a> und folge uns auf <a href="https://www.instagram.com/dievilla39" target="_blank" rel="noopener" class="inline-link"><strong>Instagram</strong></a>!</p>
+
+    </main>
+
+    <footer>
+
+        <p>© 2026 Felix Göpfert</p>
+        <p><a href="impressum.html">Impressum</a></p>
+        <p><a href="datenschutz.html">Datenschutz</a></p>
+
+        <a href="https://www.instagram.com/dievilla39" target="_blank" rel="noopener" class="footer-social" aria-label="Villa 39 auf Instagram">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="2" y="2" width="20" height="20" rx="5"/>
+                <circle cx="12" cy="12" r="4.2"/>
+                <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/>
+            </svg>
+        </a>
+
+    </footer>
+
+    <script>
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburgerBtn.addEventListener('click', () => {
+            const isOpen = navLinks.classList.toggle('is-open');
+            hamburgerBtn.classList.toggle('is-open', isOpen);
+            hamburgerBtn.setAttribute('aria-expanded', isOpen);
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('is-open');
+                hamburgerBtn.classList.remove('is-open');
+                hamburgerBtn.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // Aktuelles: alle Meldungen aus news.json laden und anzeigen.
+        // Neue Meldung hinzufügen = einfach neuen Eintrag in news.json ergänzen.
+        const aktuellesList = document.getElementById('aktuellesList');
+
+        fetch('news.json')
+            .then(res => {
+                if (!res.ok) throw new Error('news.json nicht gefunden');
+                return res.json();
+            })
+            .then(items => {
+                aktuellesList.innerHTML = '';
+
+                items
+                    .slice()
+                    .sort((a, b) => new Date(b.date) - new Date(a.date))
+                    .forEach(item => {
+                        const entry = document.createElement('article');
+                        entry.className = 'aktuelles-item';
+
+                        const formattedDate = new Date(item.date).toLocaleDateString('de-DE', {
+                            day: '2-digit', month: 'long', year: 'numeric'
+                        });
+
+                        const dateEl = document.createElement('p');
+                        dateEl.className = 'aktuelles-date';
+                        dateEl.textContent = formattedDate;
+
+                        const titleEl = document.createElement('h3');
+                        titleEl.textContent = item.title;
+
+                        entry.append(dateEl, titleEl);
+
+                        if (item.image) {
+                            const imageEl = document.createElement('img');
+                            imageEl.className = 'aktuelles-image';
+                            imageEl.src = item.image;
+                            imageEl.alt = item.imageAlt || '';
+                            imageEl.loading = 'lazy';
+                            entry.append(imageEl);
+                        }
+
+                        if (item.eventDate) {
+                            const eventEl = document.createElement('p');
+                            eventEl.className = 'aktuelles-event-date';
+                            const formattedEventDate = new Date(item.eventDate).toLocaleDateString('de-DE', {
+                                day: '2-digit', month: 'long', year: 'numeric'
+                            });
+                            eventEl.textContent = `Termin: ${formattedEventDate}`;
+                            entry.append(eventEl);
+                        }
+
+                        const textEl = document.createElement('p');
+                        textEl.textContent = item.text;
+                        entry.append(textEl);
+
+                        aktuellesList.appendChild(entry);
+                    });
+            })
+            .catch(() => {
+                aktuellesList.innerHTML = '<p class="aktuelles-fallback">Aktuell keine Meldungen. (Hinweis: news.json muss über einen Server ausgeliefert werden, nicht per Doppelklick geöffnet.)</p>';
+            });
+    </script>
+
+</body>
+
+</html>

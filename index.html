@@ -7,11 +7,16 @@
 
     <title>Villa 39</title>
 
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500;600;700&family=Permanent+Marker&display=swap"
         rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
@@ -19,25 +24,308 @@
 
 <body>
 
-    <header class="hero">
+    <nav>
 
-        <div class="hero-content">
+        <a href="#" class="logo">Villa 39</a>
 
-            <p class="eyebrow">Wir kaufen die</p>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Menü öffnen" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
 
-            <h1>Villa 39</h1>
+        <ul id="navLinks">
+            <li><a href="#about">Worum es geht</a></li>
+            <li><a href="#aktuelles">Aktuelles</a></li>
+            <li><a href="#support">Direktkredit</a></li>
+            <li><a href="#geschichte">Die Villa</a></li>
+            <li><a href="#newsletter">Newsletter</a></li>
+            <li><a href="#contact">Kontakt</a></li>
+        </ul>
 
-            <p class="subtitle">
-                Helft uns, unsere Villa zu retten!
-            </p>
+    </nav>
 
-            <p class="placeholder-note">
-                Bald gibt es hier mehr zu sehen.
-            </p>
+   <header class="hero">
 
+    <div class="hero-content">
+
+        <p class="eyebrow">Wir kaufen die</p>
+
+        <h1>Villa 39</h1>
+
+        <p class="subtitle">
+            Hilf uns, die Villa zu retten!
+        </p>
+
+        <a href="#about" class="button">Mehr erfahren</a>
+
+        <div class="scroll-indicator">
+            ↓
         </div>
 
-    </header>
+    </div>
+
+    <div class="stamp">Bezahlbarer<br>Wohnraum<br>für alle!</div>
+
+</header>
+ 
+    <main>
+
+        <section id="about">
+
+            <h2>Wir wollen die Villa 39 erhalten</h2>
+
+            <div class="about-grid">
+
+                <img src="images/about.jpg" alt="Villa 39">
+
+                <div>
+
+                     <p>
+                        <strong>Wer wir sind</strong>. In der Villa lebt seit fast 50 Jahren eine bunte Gemeinschaft aus Menschen unterschiedlichster Hintergründe.<a href="#geschichte" class="inline-link"><strong>→ Geschichte</strong></a>
+                    </p>
+                    <p>
+                        <strong>Unser Zuhause ist in Gefahr</strong>. Der Villa droht der Verkauf an einen Investor und damit der Abriss. Damit würde in Würzburg noch mehr bezahlbarer Wohn- und Lebensraum verloren gehen. Nach dem Konzept des Mietshäuser-Syndikats wollen wir die Villa kaufen und so dauerhaft dem Wohnungsmarkt entziehen. <a href="#finanzierung" class="inline-link"><strong>→ Finanzierung</strong></a>
+                    </p>
+
+                    <p>
+                        <strong>Wir brauchen Deine Hilfe</strong>. In der Villa leben seit langem Menschen verschiedenster Hintergründe zusammen. Sie ist ein Teil von Würzburg. Um sie zu retten, brauchen wir Deine Hilfe in Form eines Direktkredits.</p>
+                    <p class="about-cta"><a href="#support" class="button button--dark">Jetzt helfen!</a></p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+            <section id="aktuelles">
+
+        <h2>Aktuelles</h2>
+
+            <div class="aktuelles-list" id="aktuellesList">
+            <p class="aktuelles-fallback">Meldungen werden geladen …</p>
+         </div>
+
+         <p class="about-cta"><a href="aktuelles.html" class="button button--dark">Alle Meldungen</a></p>
+
+         <p>Um über alles rund um die Villa 39 auf dem Laufenden zu bleiben, abonniere unseren <a href="#newsletter" class="inline-link"><strong>Newsletter</strong></a> und folge uns auf <a href="https://www.instagram.com/dievilla39" target="_blank" rel="noopener" class="inline-link"><strong>Instagram</strong></a>!</p>
+
+        </section>
+
+
+        <section id="support">
+
+            <h2>Wie kann ich helfen?</h2>
+
+            <div class="about-grid">
+                <img src="images/direktkredit-diagramm.png" alt="Wie ein Direktkredit funktioniert">
+                <div>
+                    <p>
+                        Der wichtigste Hebel, mit dem du uns gerade helfen kannst: ein <strong>Direktkredit</strong>. Direktkredite erlauben es uns, günstig Geld aufzunehmen, um die Raten und Zinsen unseres Darlehens abzubezahlen — ganz ohne Bank dazwischen. Nach Ablauf der vereinbarten Laufzeit bekommst Du dein Geld wieder zurück.
+                    </p>
+                 <p class="about-cta"><a href="mailto:villa39@gmx.de?subject=Interesse%20an%20einem%20Direktkredit&body=Hallo%20liebe%20Villa%2039%2C%0A%0Aich%20m%C3%B6chte%20euch%20gerne%20mit%20einem%20Direktkredit%20unterst%C3%BCtzen.%0A%0AGew%C3%BCnschter%20Betrag%3A%20%0AGew%C3%BCnschte%20Laufzeit%3A%20%0AMeine%20Telefonnummer%3A%20%0A%0AViele%20Gr%C3%BC%C3%9Fe" class="button button--dark">Jetzt Direktkredit geben</a></p>
+                    <p class="about-cta"><a href="direktkredit.html" class="button button--dark">Mehr zum Direktkredit</a></p>
+                </div>
+            </div>
+
+            <p class="subpage-note-inline">
+                → <a href="https://www.instagram.com/dievilla39" target="_blank" rel="noopener" class="inline-link">Erzähl weiter (Instagram)</a> — je mehr Leute von uns wissen, desto besser stehen unsere Chancen.<br>
+                → <a href="schwarzes-brett.html" class="inline-link">Schwarzes Brett</a> — hilf uns bei konkreten Anliegen, mit Geld oder deinem Können.
+            </p>
+
+        </section>
+
+                <section id="geschichte">
+
+            <h2>Die Villa</h2>
+
+            <p class="story-lead">Alles begann ganz unscheinbar: Ein beschauliches Haus mit dem Kratzer einer Riesentatze zwischen den Fenstern, die verschlafen auf die laute Straße hinausblickten. Man munkelt die Narben habe es vom Krieg. Die Wände hielten das Dach und die Leere dazwischen. Es muss um das Jahr 1988 herum gewesen sein, als eine Gruppe junger Menschen einzog.</p>
+
+            <div class="story-row c-red">
+                <img src="images/gallery3.jpg" alt="Lagerfeuer">
+                <p>Plötzlich brannte Licht hinter den Fenstern und Feuer im Garten. Unabdingbare Veränderungen wurden eingeführt, wie der Rauschausschalter und eine himmelblaue wolkenverschmierte Decke. Menschen zogen ein und aus, Babys wurden geboren, Gitarren angesammelt, ein Klavier verstimmt, Parties geschmissen.</p>
+            </div>
+
+            <div class="story-row reverse c-blue">
+                <img src="images/gallery1.jpg" alt="Baumhaus">
+                <p>Über die Jahre hinweg sammelte die Villa allerhand Geschichten. Einmal wurde die Haustür geklaut, viele Male Rasen angepflanzt, viele Male Rasen zertrampelt. Ein Baumhaus wurde zwischen den Walnussbaum gebastelt, die Villawände verziert. Wenn zu unseren Ehemaligentreffen Menschen zusammenkommen, die vor mehreren Jahrzehnten hier gemeinsam gewohnt haben und noch immer von der Zeit schwärmen, mit Pipi in den Augen, dann wird uns einmal mehr bewusst, wie schützenswert dieser Ort ist.</p>
+            </div>
+
+            <div class="story-row c-green">
+                <img src="images/gallery4.jpg" alt="Küche">
+                <p>Die Villa war, ist und bleibt nicht nur Zuhause vieler Menschen, sondern auch darüber hinaus ein Ort der Begegnung und des Wachsens. So bietet sie einen Raum für Austausch auf vielen Ebenen. Daraus entstehen neben Diskussionen und gemeinsamen politischen Aktionen auch Workshops zu unterschiedlichen Themen, von Gewaltfreier Kommunikation über Grenzen und Körperwahrnehmung bis hin zu Moderation schwieriger Gespräche.</p>
+            </div>
+
+            <div class="story-row reverse c-red">
+                <img src="images/gallery2.jpg" alt="Wohnzimmer">
+                <p>Im Wohnzimmer entspringen Ideen um ein soziales Miteinander zu gestalten. Wir organisieren dort Abende zum gemeinsamen Musizieren, woraus schon mehrere Bands entsprungen sind. Außerdem teilen wir Essen, Kleidung und Gebrauchsgegenstände, im Rahmen unseres Verschenkeschrankes auch mit der Nachbarschaft. Foodsharing Würzburg wurde von hier aus maßgeblich mitgestaltet.</p>
+            </div>
+
+            <h2 id="finanzierung">Wie wir die Villa finanzieren</h2>
+
+            <div class="story-row c-blue">
+                <img src="images/gallery5.png" alt="Illustration Finanzierung">
+                <p>Die Villa wird verkauft. Das steht fest. Was noch nicht feststeht, ist an wen. Und da kommst Du ins Spiel! Mit Deiner Hilfe kaufen wir die Villa unterstützt vom Mietshäuser-Syndikat. Das Mietshäuser-Syndikat ist ein Netzwerk selbstverwalteter Hausprojekte, das Wohnraum dauerhaft dem Immobilienmarkt entzieht.</p>
+            </div>
+
+            <div class="story-row reverse c-green">
+                <img src="images/moneymeter.jpg" alt="Money Meter">
+                <p>Jedes Haus wird von einer eigenen GmbH gehalten, die zur Hälfte aus dem Hausverein und zur anderen aus dem Mietshäuser Syndikat gebildet wird. Wir entscheiden eigenständig über alle Angelegenheiten des Hauses, während das Syndikat durch seine Mitgesellschafterrolle ein Vetorecht bei Verkauf oder Satzungsänderungen hat.</p>
+            </div>
+
+            <p>So wird sichergestellt, dass die Immobilie nicht privatisiert oder verkauft werden kann. Die Miete dient der Finanzierung des Hauses sowie der Unterstützung neuer Projekte, sodass langfristig bezahlbarer und gemeinschaftlich organisierter Wohnraum erhalten bleibt.</p>
+
+            <p class="story-pullquote">Wer Farbe bekennen möchte für das Erhalten von alternativem, selbstgestaltetem Wohnraum, wer sich auch aufregt über reiche Investoren, die Kapital aus kaum noch bezahlbarem Wohnraum schlagen, oder einfach weiterhin auf unsere legendären Hausparties gehen möchte, hat jetzt die Möglichkeit, zum Erhalt der Villa 39 beizutragen!</p>
+
+            <p>
+                Mehr zu den konkreten Unterstützungsmöglichkeiten findest Du bei
+                <a href="direktkredit.html" class="inline-link">Direktkredit</a> und am
+                <a href="schwarzes-brett.html" class="inline-link">Schwarzen Brett</a>.
+            </p>
+
+        </section>
+
+        <section id="newsletter">
+
+            <h2>Newsletter</h2>
+
+            <p class="newsletter-intro">
+                Trag dich ein, um Neuigkeiten rund um die Villa 39 direkt per E-Mail zu bekommen.
+            </p>
+
+            <!--
+                Newsletter-Anmeldung läuft über Brevo (siehe action-URL).
+                Design bleibt komplett eigenes CSS — Brevos eigene Formular-
+                Optik/Skripte werden bewusst nicht eingebunden.
+            -->
+            <form class="newsletter-form" action="https://c9697a30.sibforms.com/serve/MUIFAOA2FlV4Ldg6ak_zlA5hbDaFhGDkti5wLOoUXMeFIHNsJCoRImW6JLOZ0ZLXYXH41paYY63_zXk2cGnS4NoMvJaVk9VNo9JipZS8ZUPMzrPmCzzkmsABPGGzKhXCjsLHEANkLJAOXRfOzTFFph9Ib1CRm6_5KDJcnVQFirf_83c7lYEgK9jKOA5-aN_cxB3Bg43foRtMUiiX3g==" method="post">
+
+                <div class="newsletter-row">
+                    <input type="email" name="EMAIL" placeholder="deine@email.de" required aria-label="E-Mail-Adresse">
+                    <button type="submit" class="button button--dark">Eintragen</button>
+                </div>
+
+                <label class="newsletter-consent">
+                    <input type="checkbox" name="OPT_IN" required>
+                    Ich möchte den Newsletter erhalten und akzeptiere die <a href="datenschutz.html" class="inline-link">Datenschutzerklärung</a>.
+                </label>
+
+                <!-- Brevo-Pflichtfelder: Anti-Spam-Honeypot + Sprache -->
+                <input type="text" name="email_address_check" value="" class="newsletter-honeypot" tabindex="-1" autocomplete="off">
+                <input type="hidden" name="locale" value="de">
+            </form>
+
+        </section>
+
+
+        <section id="contact">
+
+            <h2>Kontakt</h2>
+
+            <p>Email: villa39@gmx.de</p>
+            <p>Adresse: Rottendorfer Str. 39, 97074 Würzburg-Frauenland</p>
+            <p>Instagram: <a href="https://www.instagram.com/dievilla39" target="_blank" rel="noopener">@dievilla39</a></p>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <p>© 2026 Felix Göpfert</p>
+        <p><a href="impressum.html">Impressum</a></p>
+        <p><a href="datenschutz.html">Datenschutz</a></p>
+        <a href="https://www.instagram.com/dievilla39" target="_blank" rel="noopener" class="footer-social" aria-label="Villa 39 auf Instagram">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="2" y="2" width="20" height="20" rx="5"/>
+                <circle cx="12" cy="12" r="4.2"/>
+                <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/>
+            </svg>
+        </a>
+
+    </footer>
+
+    <script>
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburgerBtn.addEventListener('click', () => {
+            const isOpen = navLinks.classList.toggle('is-open');
+            hamburgerBtn.classList.toggle('is-open', isOpen);
+            hamburgerBtn.setAttribute('aria-expanded', isOpen);
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('is-open');
+                hamburgerBtn.classList.remove('is-open');
+                hamburgerBtn.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // Aktuelles: Meldungen aus news.json laden und anzeigen.
+        // Neue Meldung hinzufügen = einfach neuen Eintrag in news.json ergänzen.
+        const aktuellesList = document.getElementById('aktuellesList');
+
+        fetch('news.json')
+            .then(res => {
+                if (!res.ok) throw new Error('news.json nicht gefunden');
+                return res.json();
+            })
+            .then(items => {
+                aktuellesList.innerHTML = '';
+
+                items
+                    .slice()
+                    .sort((a, b) => new Date(b.date) - new Date(a.date))
+                    .slice(0, 3)
+                    .forEach(item => {
+                        const entry = document.createElement('article');
+                        entry.className = 'aktuelles-item';
+
+                        const formattedDate = new Date(item.date).toLocaleDateString('de-DE', {
+                            day: '2-digit', month: 'long', year: 'numeric'
+                        });
+
+                        const dateEl = document.createElement('p');
+                        dateEl.className = 'aktuelles-date';
+                        dateEl.textContent = formattedDate;
+
+                        const titleEl = document.createElement('h3');
+                        titleEl.textContent = item.title;
+
+                        entry.append(dateEl, titleEl);
+
+                        if (item.image) {
+                            const imageEl = document.createElement('img');
+                            imageEl.className = 'aktuelles-image';
+                            imageEl.src = item.image;
+                            imageEl.alt = item.imageAlt || '';
+                            imageEl.loading = 'lazy';
+                            entry.append(imageEl);
+                        }
+
+                        if (item.eventDate) {
+                            const eventEl = document.createElement('p');
+                            eventEl.className = 'aktuelles-event-date';
+                            const formattedEventDate = new Date(item.eventDate).toLocaleDateString('de-DE', {
+                                day: '2-digit', month: 'long', year: 'numeric'
+                            });
+                            eventEl.textContent = `Termin: ${formattedEventDate}`;
+                            entry.append(eventEl);
+                        }
+
+                        const textEl = document.createElement('p');
+                        textEl.textContent = item.text;
+                        entry.append(textEl);
+
+                        aktuellesList.appendChild(entry);
+                    });
+            })
+            .catch(() => {
+                aktuellesList.innerHTML = '<p class="aktuelles-fallback">Aktuell keine Meldungen. (Hinweis: news.json muss über einen Server ausgeliefert werden, nicht per Doppelklick geöffnet.)</p>';
+            });
+    </script>
 
 </body>
 
