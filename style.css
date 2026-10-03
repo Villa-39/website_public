@@ -1114,7 +1114,7 @@ footer a:not(.footer-social):hover {
         padding: 14px 16px;
         font-size: .72rem;
         top: auto;
-        bottom: 8%;
+        bottom: 20%;
         right: 6%;
     }
 
@@ -1135,6 +1135,12 @@ footer a:not(.footer-social):hover {
 
     .about-grid > img {
         order: 2;
+    }
+
+    /* Startseite: Überschrift steht außerhalb des Grids, Bild direkt darunter */
+    #about .about-grid > img,
+    #support .about-grid > img {
+        order: 0;
     }
 
     .story-row.reverse {
