@@ -683,6 +683,23 @@ h2::after {
     }
 }
 
+/* Startseite: Texte werden per JS auf ein Zeichenlimit gekürzt (index.html),
+   darunter bei Bedarf der Weiterlesen-Link. */
+
+.aktuelles-more {
+    margin: 0;
+    font-size: .85rem;
+    font-weight: 600;
+}
+
+.aktuelles-more[hidden] {
+    display: none;
+}
+
+.aktuelles-item {
+    scroll-margin-top: calc(var(--nav-h) + 24px);
+}
+
 /* Aktuelles-Unterseite: alle Meldungen, größere Bilder */
 
 .aktuelles-list--full .aktuelles-item {

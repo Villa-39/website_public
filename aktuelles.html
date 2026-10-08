@@ -5,7 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Aktuelles — Villa 39</title>
+    <title>Aktuelles – Villa 39</title>
+
+    <meta name="description" content="Neuigkeiten aus der Villa 39: Aktionen, Termine und der aktuelle Stand auf dem Weg zum gemeinsamen Hauskauf in Würzburg.">
+    <link rel="canonical" href="https://dievilla39.de/aktuelles.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Villa 39">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:title" content="Aktuelles – Villa 39">
+    <meta property="og:description" content="Neuigkeiten aus der Villa 39: Aktionen, Termine und der aktuelle Stand auf dem Weg zum gemeinsamen Hauskauf in Würzburg.">
+    <meta property="og:url" content="https://dievilla39.de/aktuelles.html">
+    <meta property="og:image" content="https://dievilla39.de/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
 
     <link rel="icon" href="favicon.ico" sizes="any">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -92,9 +106,20 @@
             });
         });
 
-        // Aktuelles: alle Meldungen aus news.json laden und anzeigen.
+        // Aktuelles: alle Meldungen aus news.json laden und in voller Länge anzeigen.
         // Neue Meldung hinzufügen = einfach neuen Eintrag in news.json ergänzen.
+        // Lange Texte: Absätze in news.json mit einer Leerzeile ("\n\n") trennen.
         const aktuellesList = document.getElementById('aktuellesList');
+
+        function newsId(item) {
+            if (item.id) return item.id;
+            const slug = String(item.title).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+            return `meldung-${item.date}-${slug}`;
+        }
+
+        function newsParagraphs(item) {
+            return String(item.text).split(/\n\s*\n/).map(s => s.trim()).filter(Boolean);
+        }
 
         fetch('news.json')
             .then(res => {
@@ -110,6 +135,7 @@
                     .forEach(item => {
                         const entry = document.createElement('article');
                         entry.className = 'aktuelles-item';
+                        entry.id = newsId(item);
 
                         const formattedDate = new Date(item.date).toLocaleDateString('de-DE', {
                             day: '2-digit', month: 'long', year: 'numeric'
@@ -143,12 +169,21 @@
                             entry.append(eventEl);
                         }
 
-                        const textEl = document.createElement('p');
-                        textEl.textContent = item.text;
-                        entry.append(textEl);
+                        newsParagraphs(item).forEach(paragraph => {
+                            const textEl = document.createElement('p');
+                            textEl.className = 'aktuelles-text';
+                            textEl.textContent = paragraph;
+                            entry.append(textEl);
+                        });
 
                         aktuellesList.appendChild(entry);
                     });
+
+                // Sprung zu einer bestimmten Meldung (Link "Weiterlesen" von der Startseite)
+                if (location.hash) {
+                    const target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+                    if (target) target.scrollIntoView();
+                }
             })
             .catch(() => {
                 aktuellesList.innerHTML = '<p class="aktuelles-fallback">Aktuell keine Meldungen. (Hinweis: news.json muss über einen Server ausgeliefert werden, nicht per Doppelklick geöffnet.)</p>';

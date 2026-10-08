@@ -5,7 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Villa 39</title>
+    <title>Villa 39 – Gemeinsam retten wir die Villa</title>
+
+    <meta name="description" content="Wir kämpfen für unsere Villa 39 in Würzburg-Frauenland als bezahlbarer und selbstverwalteter Wohnraum. Hilf jetzt mit einem Direktkredit!">
+    <link rel="canonical" href="https://dievilla39.de/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Villa 39">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:title" content="Villa 39 - Gemeinsam retten wir die Villa">
+    <meta property="og:description" content="Wir kämpfen für unsere Villa 39 in Würzburg-Frauenland als bezahlbarer und selbstverwalteter Wohnraum. Hilf jetzt mit einem Direktkredit!">
+    <meta property="og:url" content="https://dievilla39.de/">
+    <meta property="og:image" content="https://dievilla39.de/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Villa 39",
+        "alternateName": "Die Villa 39",
+        "url": "https://dievilla39.de/"
+    }
+    </script>
 
     <link rel="icon" href="favicon.ico" sizes="any">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -129,7 +153,7 @@
             </div>
 
             <p class="subpage-note-inline">
-                → <a href="https://www.instagram.com/dievilla39" target="_blank" rel="noopener" class="inline-link">Erzähl es weiter (Instagram)</a> — je mehr Leute von uns wissen, desto besser stehen unsere Chancen.<br>
+                → <a href="https://www.instagram.com/dievilla39" target="_blank" rel="noopener" class="inline-link">Erzähl weiter (Instagram)</a> — je mehr Leute von uns wissen, desto besser stehen unsere Chancen.<br>
                 → <a href="schwarzes-brett.html" class="inline-link">Schwarzes Brett</a> — hilf uns bei konkreten Anliegen, mit Geld oder deinem Können.
             </p>
 
@@ -265,7 +289,33 @@
 
         // Aktuelles: Meldungen aus news.json laden und anzeigen.
         // Neue Meldung hinzufügen = einfach neuen Eintrag in news.json ergänzen.
+        // Lange Texte: Absätze in news.json mit einer Leerzeile ("\n\n") trennen.
         const aktuellesList = document.getElementById('aktuellesList');
+
+        function newsId(item) {
+            if (item.id) return item.id;
+            const slug = String(item.title).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+            return `meldung-${item.date}-${slug}`;
+        }
+
+        function newsParagraphs(item) {
+            return String(item.text).split(/\n\s*\n/).map(s => s.trim()).filter(Boolean);
+        }
+
+        // Startseite: Texte werden auf ein festes Zeichenlimit gekürzt (am Wortende, nie mitten im Wort).
+        // Nur wenn wirklich gekürzt wird, erscheint der "Weiterlesen"-Link.
+        // Limit anpassen: Mit Termin-Chip ist etwas weniger Platz neben dem Bild.
+        const TEASER_LIMIT = 260;
+        const TEASER_LIMIT_EVENT = 200;
+
+        function teaser(text, limit) {
+            if (text.length <= limit) return { text, truncated: false };
+            let cut = text.slice(0, limit + 1);
+            const lastSpace = cut.search(/\s\S*$/);
+            cut = (lastSpace > 0 ? cut.slice(0, lastSpace) : cut.slice(0, limit))
+                .replace(/[\s,;:.!?\-–—(]+$/, '');
+            return { text: cut + ' …', truncated: true };
+        }
 
         fetch('news.json')
             .then(res => {
@@ -282,6 +332,7 @@
                     .forEach(item => {
                         const entry = document.createElement('article');
                         entry.className = 'aktuelles-item';
+                        if (item.eventDate) entry.classList.add('has-event');
 
                         const formattedDate = new Date(item.date).toLocaleDateString('de-DE', {
                             day: '2-digit', month: 'long', year: 'numeric'
@@ -316,11 +367,25 @@
                         }
 
                         const textEl = document.createElement('p');
-                        textEl.textContent = item.text;
+                        textEl.className = 'aktuelles-text';
+                        const full = newsParagraphs(item).join(' ');
+                        const short = teaser(full, item.eventDate ? TEASER_LIMIT_EVENT : TEASER_LIMIT);
+                        textEl.textContent = short.text;
                         entry.append(textEl);
+
+                        const moreEl = document.createElement('p');
+                        moreEl.className = 'aktuelles-more';
+                        moreEl.hidden = !short.truncated;
+                        const moreLink = document.createElement('a');
+                        moreLink.className = 'inline-link';
+                        moreLink.href = `aktuelles.html#${newsId(item)}`;
+                        moreLink.textContent = 'Weiterlesen →';
+                        moreEl.append(moreLink);
+                        entry.append(moreEl);
 
                         aktuellesList.appendChild(entry);
                     });
+
             })
             .catch(() => {
                 aktuellesList.innerHTML = '<p class="aktuelles-fallback">Aktuell keine Meldungen. (Hinweis: news.json muss über einen Server ausgeliefert werden, nicht per Doppelklick geöffnet.)</p>';
