@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dievilla39.de/sitemap.xml
