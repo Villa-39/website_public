@@ -819,6 +819,7 @@ h2::after {
 .subpage-hero h1 {
     color: var(--paper);
     font-size: clamp(2.2rem, 6vw, 3.2rem);
+    overflow-wrap: break-word;
 }
 
 .subpage-content {
@@ -1199,4 +1200,12 @@ footer a:not(.footer-social):hover {
 
 .aktuelles-list + .about-cta {
     margin: 30px 0 30px;
+}
+
+/* Lange Wörter und URLs (z. B. in der Datenschutzerklärung) dürfen auf dem Handy umbrechen */
+.subpage-content h2,
+.subpage-content h3,
+.subpage-content a,
+.subpage-content li {
+    overflow-wrap: anywhere;
 }
