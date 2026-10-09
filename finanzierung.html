@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Finanzierung – So kaufen wir die Villa 39</title>
+
+    <meta name="description" content="Wie wir die Villa 39 mit dem Mietshäuser-Syndikat kaufen und dauerhaft dem Immobilienmarkt entziehen: GmbH, Hausverein und Direktkredite erklärt.">
+    <link rel="canonical" href="https://dievilla39.de/finanzierung.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Villa 39">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:title" content="Finanzierung – So kaufen wir die Villa 39">
+    <meta property="og:description" content="Wie wir die Villa 39 mit dem Mietshäuser-Syndikat kaufen und dauerhaft dem Immobilienmarkt entziehen: GmbH, Hausverein und Direktkredite erklärt.">
+    <meta property="og:url" content="https://dievilla39.de/finanzierung.html">
+    <meta property="og:image" content="https://dievilla39.de/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav>
+
+        <a href="index.html" class="logo">Villa 39</a>
+
+        <button class="hamburger" id="hamburgerBtn" aria-label="Menü öffnen" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <ul id="navLinks">
+            <li><a href="index.html#about">Worum es geht</a></li>
+            <li><a href="aktuelles.html">Aktuelles</a></li>
+            <li><a href="direktkredit.html">Direktkredit</a></li>
+            <li><a href="geschichte.html">Die Villa</a></li>
+            <li><a href="finanzierung.html">Finanzierung</a></li>
+            <li><a href="index.html#newsletter">Newsletter</a></li>
+            <li><a href="index.html#contact">Kontakt</a></li>
+        </ul>
+
+    </nav>
+
+    <header class="subpage-hero">
+        <h1>Finanzierung</h1>
+    </header>
+
+    <main class="subpage-content subpage-content--wide">
+
+        <div class="story-row c-blue">
+                <img loading="lazy" src="images/gallery5.png" alt="Illustration Finanzierung">
+                <p>Die Villa wird verkauft. Das steht fest. Was noch nicht feststeht, ist an wen. Und da kommst Du ins Spiel! Mit Deiner Hilfe kaufen wir die Villa unterstützt vom Mietshäuser-Syndikat. Das Mietshäuser-Syndikat ist ein Netzwerk selbstverwalteter Hausprojekte, das Wohnraum dauerhaft dem Immobilienmarkt entzieht.</p>
+            </div>
+
+        <div class="story-row reverse c-green">
+                <img loading="lazy" src="images/moneymeter.jpg" alt="Money Meter">
+                <p>Jedes Haus wird von einer eigenen GmbH gehalten, die zur Hälfte aus dem Hausverein und zur anderen aus dem Mietshäuser Syndikat gebildet wird. Wir entscheiden eigenständig über alle Angelegenheiten des Hauses, während das Syndikat durch seine Mitgesellschafterrolle ein Vetorecht bei Verkauf oder Satzungsänderungen hat.</p>
+            </div>
+
+        <p>So wird sichergestellt, dass die Immobilie nicht privatisiert oder verkauft werden kann. Die Miete dient der Finanzierung des Hauses sowie der Unterstützung neuer Projekte, sodass langfristig bezahlbarer und gemeinschaftlich organisierter Wohnraum erhalten bleibt.</p>
+
+        <p class="story-pullquote">Wer Farbe bekennen möchte für das Erhalten von alternativem, selbstgestaltetem Wohnraum, wer sich auch aufregt über reiche Investoren, die Kapital aus kaum noch bezahlbarem Wohnraum schlagen, oder einfach weiterhin auf unsere legendären Hausparties gehen möchte, hat jetzt die Möglichkeit, zum Erhalt der Villa 39 beizutragen!</p>
+
+        <p>
+                Mehr zu den konkreten Unterstützungsmöglichkeiten findest Du bei
+                <a href="direktkredit.html" class="inline-link">Direktkredit</a>.
+            </p>
+
+        <p class="about-cta"><a href="direktkredit.html" class="button button--dark">Mehr zum Direktkredit</a></p>
+
+    </main>
+
+    <footer>
+
+        <p>© 2026 Felix Göpfert</p>
+        <p><a href="impressum.html">Impressum</a></p>
+        <p><a href="datenschutz.html">Datenschutz</a></p>
+
+        <a href="https://www.instagram.com/dievilla39" target="_blank" rel="noopener" class="footer-social" aria-label="Villa 39 auf Instagram">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="2" y="2" width="20" height="20" rx="5"/>
+                <circle cx="12" cy="12" r="4.2"/>
+                <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/>
+            </svg>
+        </a>
+
+    </footer>
+
+    <script>
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburgerBtn.addEventListener('click', () => {
+            const isOpen = navLinks.classList.toggle('is-open');
+            hamburgerBtn.classList.toggle('is-open', isOpen);
+            hamburgerBtn.setAttribute('aria-expanded', isOpen);
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('is-open');
+                hamburgerBtn.classList.remove('is-open');
+                hamburgerBtn.setAttribute('aria-expanded', 'false');
+            });
+        });
+    </script>
+
+
+</body>
+
+</html>
