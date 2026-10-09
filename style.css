@@ -1209,3 +1209,254 @@ footer a:not(.footer-social):hover {
 .subpage-content li {
     overflow-wrap: anywhere;
 }
+
+/* ---------- Fortschrittsbalken ---------- */
+
+.fund {
+    margin: 34px 0 10px;
+    max-width: 520px;
+}
+
+.fund[hidden] {
+    display: none;
+}
+
+.fund-head {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 4px 10px;
+    margin-bottom: 10px;
+}
+
+.about-grid .fund-now {
+    font-family: "Archivo Black", sans-serif;
+    font-size: 1.9rem;
+    line-height: 1;
+    color: var(--riso-red);
+    font-variant-numeric: tabular-nums;
+}
+
+.fund-of {
+    font-size: .85rem;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+}
+
+.fund-track {
+    height: 30px;
+    border: 3px solid var(--ink);
+    background: var(--paper-dark);
+    box-shadow: 5px 5px 0 var(--riso-blue);
+    overflow: hidden;
+}
+
+.fund-fill {
+    width: 0;
+    height: 100%;
+    background-color: var(--riso-red);
+    background-image: repeating-linear-gradient(
+        -45deg,
+        transparent 0 6px,
+        rgba(28, 27, 24, .22) 6px 8px
+    );
+    border-right: 3px solid var(--ink);
+    transition: width 1.4s cubic-bezier(.22, .61, .36, 1);
+}
+
+.fund-note {
+    margin-top: 14px;
+    font-size: .8rem;
+    line-height: 1.5;
+}
+
+.fund-date {
+    display: block;
+    opacity: .7;
+}
+
+/* ---------- Teilen-Button ---------- */
+
+.share-btn {
+    padding: 0;
+    background: none;
+    border-width: 0 0 2px;
+    font: inherit;
+    cursor: pointer;
+}
+
+.share-btn:hover {
+    opacity: .75;
+}
+
+.share-status {
+    font-weight: 600;
+    color: var(--riso-red);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .fund-fill {
+        transition: none;
+    }
+}
+
+/* ---------- Meilensteine ---------- */
+
+.fund-track {
+    position: relative;
+}
+
+.fund-tick {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    margin-left: -1.5px;
+    background: var(--ink);
+}
+
+.fund-toggle-wrap {
+    margin-top: 10px;
+}
+
+.fund-toggle {
+    padding: 0;
+    background: none;
+    border-width: 0 0 2px;
+    font: inherit;
+    font-size: .85rem;
+    cursor: pointer;
+}
+
+.fund-toggle:hover {
+    opacity: .75;
+}
+
+.ms-panel {
+    display: grid;
+    grid-template-rows: 0fr;
+    visibility: hidden;
+    transition: grid-template-rows .4s ease, visibility 0s linear .4s;
+}
+
+.ms-panel.is-open {
+    grid-template-rows: 1fr;
+    visibility: visible;
+    transition: grid-template-rows .4s ease, visibility 0s;
+}
+
+.ms-inner {
+    overflow: hidden;
+    min-height: 0;
+}
+
+.ms-list {
+    list-style: none;
+    margin: 16px 0 0;
+    padding: 0;
+}
+
+.ms-item {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.ms-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 6px;
+    font-size: .85rem;
+}
+
+.ms-title {
+    font-weight: 600;
+    transition: color .3s ease;
+}
+
+.ms-amount {
+    font-size: .8rem;
+    opacity: .7;
+    white-space: nowrap;
+}
+
+.ms-track {
+    height: 18px;
+    border: 2.5px solid var(--ink);
+    background: var(--paper-dark);
+    overflow: hidden;
+}
+
+.ms-fill {
+    width: 0;
+    height: 100%;
+    background-color: var(--riso-red);
+    background-image: repeating-linear-gradient(
+        -45deg,
+        transparent 0 6px,
+        rgba(28, 27, 24, .22) 6px 8px
+    );
+    transition: background-color .4s ease;
+}
+
+.ms-stamp {
+    position: absolute;
+    right: 10px;
+    top: 25px;
+    padding: 2px 10px;
+    border: 2.5px solid var(--riso-red);
+    background: var(--paper);
+    color: var(--riso-red);
+    font-family: "Archivo Black", sans-serif;
+    font-size: .75rem;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    transform: rotate(-6deg) scale(0);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform .45s cubic-bezier(.34, 1.56, .64, 1), opacity .15s ease;
+}
+
+.ms-item.is-done .ms-fill {
+    background-color: #a39e91;
+}
+
+.ms-item.is-done .ms-title {
+    color: #7d796e;
+}
+
+.ms-item.is-stamped .ms-stamp {
+    transform: rotate(-6deg) scale(1);
+    opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ms-panel,
+    .ms-panel.is-open,
+    .ms-stamp,
+    .ms-fill {
+        transition: none;
+    }
+}
+
+/* Anreißer auf der Startseite: Abstand zwischen Button und nächster Überschrift */
+#geschichte .about-cta:not(:last-child) {
+    margin-bottom: 70px;
+}
+
+/* Mittlere Breiten: sieben Menüpunkte sollen in einer Zeile bleiben */
+@media (min-width: 801px) and (max-width: 1040px) {
+    nav {
+        padding: 14px 20px;
+    }
+
+    #navLinks {
+        gap: 16px;
+    }
+
+    nav a {
+        font-size: .74rem;
+        letter-spacing: .03em;
+    }
+}

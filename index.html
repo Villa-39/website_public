@@ -24,10 +24,32 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "Villa 39",
-        "alternateName": "Die Villa 39",
-        "url": "https://dievilla39.de/"
+        "@graph": [
+            {
+                "@type": "WebSite",
+                "@id": "https://dievilla39.de/#website",
+                "name": "Villa 39",
+                "alternateName": "Die Villa 39",
+                "url": "https://dievilla39.de/",
+                "inLanguage": "de"
+            },
+            {
+                "@type": "Organization",
+                "@id": "https://dievilla39.de/#organization",
+                "name": "Villa 39",
+                "url": "https://dievilla39.de/",
+                "logo": "https://dievilla39.de/favicon-512.png",
+                "email": "villa39@gmx.de",
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "Rottendorfer Straße 39",
+                    "postalCode": "97074",
+                    "addressLocality": "Würzburg",
+                    "addressCountry": "DE"
+                },
+                "sameAs": ["https://www.instagram.com/dievilla39"]
+            }
+        ]
     }
     </script>
 
@@ -58,6 +80,7 @@
             <li><a href="#aktuelles">Aktuelles</a></li>
             <li><a href="#support">Direktkredit</a></li>
             <li><a href="#geschichte">Die Villa</a></li>
+            <li><a href="#finanzierung">Finanzierung</a></li>
             <li><a href="#newsletter">Newsletter</a></li>
             <li><a href="#contact">Kontakt</a></li>
         </ul>
@@ -101,15 +124,29 @@
                 <div>
 
                      <p>
-                        <strong>Wer wir sind</strong>. In der Villa lebt seit fast 50 Jahren eine bunte Gemeinschaft aus Menschen unterschiedlichster Hintergründe.<a href="#geschichte" class="inline-link"><strong>→ Geschichte</strong></a>
+                        <strong>Wer wir sind</strong>. In der Villa lebt seit fast 50 Jahren eine bunte Gemeinschaft aus Menschen unterschiedlichster Hintergründe.<a href="geschichte.html" class="inline-link"><strong>→ Geschichte</strong></a>
                     </p>
                     <p>
-                        <strong>Unser Zuhause ist in Gefahr</strong>. Der Villa droht der Verkauf an einen Investor und damit der Abriss. Damit würde in Würzburg noch mehr bezahlbarer Wohn- und Lebensraum verloren gehen. Nach dem Konzept des Mietshäuser-Syndikats wollen wir die Villa kaufen und so dauerhaft dem Wohnungsmarkt entziehen. <a href="#finanzierung" class="inline-link"><strong>→ Finanzierung</strong></a>
+                        <strong>Unser Zuhause ist in Gefahr</strong>. Der Villa droht der Verkauf an einen Investor und damit der Abriss. Damit würde in Würzburg noch mehr bezahlbarer Wohn- und Lebensraum verloren gehen. Nach dem Konzept des Mietshäuser-Syndikats wollen wir die Villa kaufen und so dauerhaft dem Wohnungsmarkt entziehen. <a href="finanzierung.html" class="inline-link"><strong>→ Finanzierung</strong></a>
                     </p>
 
                     <p>
                         <strong>Wir brauchen Deine Hilfe</strong>. In der Villa leben seit langem Menschen verschiedenster Hintergründe zusammen. Sie ist ein Teil von Würzburg. Um sie zu retten, brauchen wir Deine Hilfe in Form eines Direktkredits.</p>
                     <p class="about-cta"><a href="#support" class="button button--dark">Jetzt helfen!</a></p>
+
+                    <div class="fund" id="fund" hidden>
+                        <p class="fund-head">
+                            <strong class="fund-now">0 €</strong>
+                            <span class="fund-of">von <span class="fund-goal"></span></span>
+                        </p>
+                        <div class="fund-track" role="progressbar" aria-label="Fortschritt bis zum Zwischenziel" aria-valuemin="0">
+                            <div class="fund-fill"></div>
+                        </div>
+                        <p class="fund-note">
+                            Unser erstes Zwischenziel: <strong>170.000 €</strong>. Damit sind wir für eine Bank kreditwürdig.
+                            <span class="fund-date"></span>
+                        </p>
+                    </div>
 
                 </div>
 
@@ -142,14 +179,13 @@
                     <p>
                         Der wichtigste Hebel, mit dem du uns gerade helfen kannst: ein <strong>Direktkredit</strong>. Direktkredite erlauben es uns, günstig Geld aufzunehmen, um die Raten und Zinsen unseres Darlehens abzubezahlen — ganz ohne Bank dazwischen. Nach Ablauf der vereinbarten Laufzeit bekommst Du dein Geld wieder zurück.
                     </p>
-                 <p class="about-cta"><a href="mailto:villa39@gmx.de?subject=Interesse%20an%20einem%20Direktkredit&body=Hallo%20liebe%20Villa%2039%2C%0A%0Aich%20m%C3%B6chte%20euch%20gerne%20mit%20einem%20Direktkredit%20unterst%C3%BCtzen.%0A%0AGew%C3%BCnschter%20Betrag%3A%20%0AGew%C3%BCnschte%20Laufzeit%3A%20%0AMeine%20Telefonnummer%3A%20%0A%0AViele%20Gr%C3%BC%C3%9Fe" class="button button--dark">Jetzt Direktkredit geben</a></p>
+                    <p class="about-cta"><a href="mailto:villa39@gmx.de?subject=Interesse%20an%20einem%20Direktkredit&body=Hallo%20liebe%20Villa%2039%2C%0A%0Aich%20m%C3%B6chte%20euch%20gerne%20mit%20einem%20Direktkredit%20unterst%C3%BCtzen.%0A%0AGew%C3%BCnschter%20Betrag%3A%20%0AGew%C3%BCnschte%20Laufzeit%3A%20%0AMeine%20Telefonnummer%3A%20%0A%0AViele%20Gr%C3%BC%C3%9Fe" class="button button--dark">Jetzt Direktkredit geben</a></p>
                     <p class="about-cta"><a href="direktkredit.html" class="button button--dark">Mehr zum Direktkredit</a></p>
                 </div>
             </div>
 
             <p class="subpage-note-inline">
-                → <a href="https://www.instagram.com/dievilla39" target="_blank" rel="noopener" class="inline-link">Erzähl weiter (Instagram)</a> — je mehr Leute von uns wissen, desto besser stehen unsere Chancen.<br>
-                → <a href="schwarzes-brett.html" class="inline-link">Schwarzes Brett</a> — hilf uns bei konkreten Anliegen, mit Geld oder deinem Können.
+                → Erzähl weiter: <button type="button" class="inline-link share-btn" id="shareBtn">Seite teilen</button> oder auf <a href="https://www.instagram.com/dievilla39" target="_blank" rel="noopener" class="inline-link">Instagram</a> — je mehr Leute von uns wissen, desto besser stehen unsere Chancen. <span class="share-status" id="shareStatus" role="status"></span>
             </p>
 
         </section>
@@ -165,20 +201,7 @@
                 <p>Plötzlich brannte Licht hinter den Fenstern und Feuer im Garten. Unabdingbare Veränderungen wurden eingeführt, wie der Rauschausschalter und eine himmelblaue wolkenverschmierte Decke. Menschen zogen ein und aus, Babys wurden geboren, Gitarren angesammelt, ein Klavier verstimmt, Parties geschmissen.</p>
             </div>
 
-            <div class="story-row reverse c-blue">
-                <img loading="lazy" src="images/gallery1.jpg" alt="Baumhaus">
-                <p>Über die Jahre hinweg sammelte die Villa allerhand Geschichten. Einmal wurde die Haustür geklaut, viele Male Rasen angepflanzt, viele Male Rasen zertrampelt. Ein Baumhaus wurde zwischen den Walnussbaum gebastelt, die Villawände verziert. Wenn zu unseren Ehemaligentreffen Menschen zusammenkommen, die vor mehreren Jahrzehnten hier gemeinsam gewohnt haben und noch immer von der Zeit schwärmen, mit Pipi in den Augen, dann wird uns einmal mehr bewusst, wie schützenswert dieser Ort ist.</p>
-            </div>
-
-            <div class="story-row c-green">
-                <img loading="lazy" src="images/gallery4.jpg" alt="Küche">
-                <p>Die Villa war, ist und bleibt nicht nur Zuhause vieler Menschen, sondern auch darüber hinaus ein Ort der Begegnung und des Wachsens. So bietet sie einen Raum für Austausch auf vielen Ebenen. Daraus entstehen neben Diskussionen und gemeinsamen politischen Aktionen auch Workshops zu unterschiedlichen Themen, von Gewaltfreier Kommunikation über Grenzen und Körperwahrnehmung bis hin zu Moderation schwieriger Gespräche.</p>
-            </div>
-
-            <div class="story-row reverse c-red">
-                <img loading="lazy" src="images/gallery2.jpg" alt="Wohnzimmer">
-                <p>Im Wohnzimmer entspringen Ideen um ein soziales Miteinander zu gestalten. Wir organisieren dort Abende zum gemeinsamen Musizieren, woraus schon mehrere Bands entsprungen sind. Außerdem teilen wir Essen, Kleidung und Gebrauchsgegenstände, im Rahmen unseres Verschenkeschrankes auch mit der Nachbarschaft. Foodsharing Würzburg wurde von hier aus maßgeblich mitgestaltet.</p>
-            </div>
+            <p class="about-cta"><a href="geschichte.html" class="button button--dark">Die ganze Geschichte</a></p>
 
             <h2 id="finanzierung">Wie wir die Villa finanzieren</h2>
 
@@ -187,20 +210,15 @@
                 <p>Die Villa wird verkauft. Das steht fest. Was noch nicht feststeht, ist an wen. Und da kommst Du ins Spiel! Mit Deiner Hilfe kaufen wir die Villa unterstützt vom Mietshäuser-Syndikat. Das Mietshäuser-Syndikat ist ein Netzwerk selbstverwalteter Hausprojekte, das Wohnraum dauerhaft dem Immobilienmarkt entzieht.</p>
             </div>
 
-            <div class="story-row reverse c-green">
-                <img loading="lazy" src="images/moneymeter.jpg" alt="Money Meter">
-                <p>Jedes Haus wird von einer eigenen GmbH gehalten, die zur Hälfte aus dem Hausverein und zur anderen aus dem Mietshäuser Syndikat gebildet wird. Wir entscheiden eigenständig über alle Angelegenheiten des Hauses, während das Syndikat durch seine Mitgesellschafterrolle ein Vetorecht bei Verkauf oder Satzungsänderungen hat.</p>
-            </div>
-
-            <p>So wird sichergestellt, dass die Immobilie nicht privatisiert oder verkauft werden kann. Die Miete dient der Finanzierung des Hauses sowie der Unterstützung neuer Projekte, sodass langfristig bezahlbarer und gemeinschaftlich organisierter Wohnraum erhalten bleibt.</p>
+            <p class="about-cta"><a href="finanzierung.html" class="button button--dark">Mehr zur Finanzierung</a></p>
 
             <p class="story-pullquote">Wer Farbe bekennen möchte für das Erhalten von alternativem, selbstgestaltetem Wohnraum, wer sich auch aufregt über reiche Investoren, die Kapital aus kaum noch bezahlbarem Wohnraum schlagen, oder einfach weiterhin auf unsere legendären Hausparties gehen möchte, hat jetzt die Möglichkeit, zum Erhalt der Villa 39 beizutragen!</p>
 
             <p>
                 Mehr zu den konkreten Unterstützungsmöglichkeiten findest Du bei
-                <a href="direktkredit.html" class="inline-link">Direktkredit</a> und am
-                <a href="schwarzes-brett.html" class="inline-link">Schwarzen Brett</a>.
+                <a href="direktkredit.html" class="inline-link">Direktkredit</a>.
             </p>
+
 
         </section>
 
@@ -300,8 +318,8 @@
         // Startseite: Texte werden auf ein festes Zeichenlimit gekürzt (am Wortende, nie mitten im Wort).
         // Nur wenn wirklich gekürzt wird, erscheint der "Weiterlesen"-Link.
         // Limit anpassen: Mit Termin-Chip ist etwas weniger Platz neben dem Bild.
-        const TEASER_LIMIT = 260;
-        const TEASER_LIMIT_EVENT = 200;
+        const TEASER_LIMIT = 300;
+        const TEASER_LIMIT_EVENT = 230;
 
         function teaser(text, limit) {
             if (text.length <= limit) return { text, truncated: false };
@@ -386,6 +404,36 @@
                 aktuellesList.innerHTML = '<p class="aktuelles-fallback">Aktuell keine Meldungen. (Hinweis: news.json muss über einen Server ausgeliefert werden, nicht per Doppelklick geöffnet.)</p>';
             });
     </script>
+
+    <script>
+        // Seite teilen: Auf dem Handy öffnet sich das Teilen-Menü, am Computer wird der Link kopiert.
+        (function () {
+            const btn = document.getElementById('shareBtn');
+            const status = document.getElementById('shareStatus');
+            if (!btn) return;
+            const canonical = document.querySelector('link[rel="canonical"]');
+            const data = {
+                title: 'Villa 39 – Gemeinsam retten wir die Villa',
+                text: 'Hilf mit, die Villa 39 in Würzburg als bezahlbaren Wohnraum zu retten:',
+                url: canonical ? canonical.href : location.href
+            };
+            btn.addEventListener('click', async () => {
+                if (navigator.share) {
+                    try { await navigator.share(data); } catch (e) { /* Teilen abgebrochen */ }
+                    return;
+                }
+                try {
+                    await navigator.clipboard.writeText(data.url);
+                    status.textContent = '✓ Link kopiert';
+                } catch (e) {
+                    window.prompt('Link zum Kopieren:', data.url);
+                }
+                setTimeout(() => { status.textContent = ''; }, 3000);
+            });
+        })();
+    </script>
+
+    <script src="fortschritt.js" defer></script>
 
 </body>
 
